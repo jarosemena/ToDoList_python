@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}Iniciar Session {% endblock %}</h1>
+{% endblock%} {% block content %}
+<form method="post">
+    <lable for="username">Username</lable>
+    <input name="username" id="username" required/>
+    <lable for="password">Password</lable>
+    <input type="password" name="password" id="password" required/>
+    <input type="submit" value="Registrarse">
+
+</form>
+{% endblock %}

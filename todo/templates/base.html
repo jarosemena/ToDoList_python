@@ -11,13 +11,14 @@
         <li><a href="{{url_for('auth.register') }}">Registrarse</a></li>
         <li>
             <a href="{{url_for('auth.login') }}"></a>Iniciar sesion</li>
+        {% endif %}
     </ul>
 </nav>
 <section class="content">
     <header>
         {% block header%}{% endblock %}
     </header>
-    {% for message in get_flashed_messages() % }
+    {% for message in get_flashed_messages() %}
     <dif class-="flash">{{ message }}</dif>
-    {% endfor % } {%clock content %}{% endblock %}
+    {% endfor %} {% block content %}{% endblock %}
 </section>
