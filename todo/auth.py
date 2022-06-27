@@ -13,7 +13,7 @@ bp = Blueprint('auth', __name__ , url_prefix='/auth')
 @bp.route('/register',methods=['GET','POST'])
 def register():
     if request.method == 'POST':
-        username = request.form['usernemae']
+        username = request.form['username']
         password = request.form['password']
         db,c = get_db()
         error = None
@@ -43,14 +43,14 @@ def register():
 @bp.route('/login', methods=['GET','POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['usernemae']
+        username = request.form['username']
         password = request.form['password']
         db,c = get_db()
         error = None
         c.execute(
             'select * from user where username = %s',(username,)
         )
-        user = c.fetone()
+        user = c.fetchone()
 
         if user is None:
             error = "Usuario y/o password invalido"
