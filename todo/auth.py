@@ -96,4 +96,5 @@ def login_requiered(view):
  
 @bp.route('/logout', methods=['GET'])
 def logout():
-    None
+    session.clear()
+    return redirect(url_for('auth.login'))
